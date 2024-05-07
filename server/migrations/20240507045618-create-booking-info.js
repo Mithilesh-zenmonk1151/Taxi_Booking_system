@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("addresses", {
+    await queryInterface.createTable("BookingInfos", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,23 +13,44 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      street: {
+      pickUpCity: {
         type: Sequelize.STRING,
       },
-      area: {
+      dropCity: {
         type: Sequelize.STRING,
       },
-      city: {
+      userId: {
         type: Sequelize.STRING,
       },
-      state: {
+
+      carId: {
         type: Sequelize.STRING,
       },
-      country: {
+      startDate: {
         type: Sequelize.STRING,
       },
-      pincode: {
+      endDate: {
+        type: Sequelize.STRING,
+      },
+      duration: {
+        type: Sequelize.STRING,
+      },
+
+      bankHolder: {
+        type: Sequelize.STRING,
+      },
+      price: {
         type: Sequelize.INTEGER,
+      },
+      cardNumber: {
+        type: Sequelize.STRING,
+      },
+      paymentStatus: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      invoiceNumber: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
@@ -42,6 +63,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("addresses");
+    await queryInterface.dropTable("BookingInfos");
   },
 };

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   car.init({
     id: {
-      allowNull: false,
+      // allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
@@ -34,9 +34,16 @@ module.exports = (sequelize, DataTypes) => {
     color: DataTypes.STRING,
     features: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    stock:DataTypes.INTEGER,
+    vehicalNumber:DataTypes.STRING,
+    rented:{type:DataTypes.BOOLEAN,
+      defaultValue:false
+    },
+    // imagePath: DataTypes.STRING,
     approved:{type:DataTypes.BOOLEAN,
       defaultValue:false},
+      allwedCity:{
+        type:DataTypes.ARRAY(DataTypes.STRING)
+      }
   }, {
     sequelize,
     modelName: 'car',

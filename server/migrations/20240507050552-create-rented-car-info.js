@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('roles', {
+    await queryInterface.createTable('rentedCarInfos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,12 +13,15 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      name: {
+      carId: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING
+      bookingId:{type:Sequelize.STRING,
       },
+      userId:{
+        type:Sequelize.STRING,
+      },
+    
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -30,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('roles');
+    await queryInterface.dropTable('rentedCarInfos');
   }
 };

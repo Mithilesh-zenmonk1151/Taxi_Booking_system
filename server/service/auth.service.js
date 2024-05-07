@@ -5,6 +5,26 @@ const jwt = require("jsonwebtoken");
 
 const CustomError = require("../utils/error");
 exports.register=async(payload)=>{
+//   function calculateStartDate(offset) {
+//   const today = new Date();
+//   today.setDate(today.getDate() + offset); // Add the offset days
+
+//   // Adjust to the next day if it's before noon
+//   if (today.getHours() < 12) {
+//     today.setDate(today.getDate() + 1);
+//   }
+
+//   return today.toISOString().slice(0, 10);;
+// }
+
+// // Calculate start date for day after tomorrow
+// const startDateAfterTomorrow = calculateStartDate(2);
+// console.log("Start Date=========",startDateAfterTomorrow);
+
+// // Calculate start date for 3 days later
+// const startDateAfter3Days = calculateStartDate(3);
+// console.log("Start date after Tommorrow",startDateAfter3Days);
+
     try{
         const {firstName,lastName,email, password,role}= payload.body;
         const isUserExists= await User.findOne({where:{email:email}});

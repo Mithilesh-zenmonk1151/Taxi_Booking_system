@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class rentalDropInfo extends Model {
+  class rentedCarInfo extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,10 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      
     }
   }
-  rentalDropInfo.init({
+  rentedCarInfo.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -25,12 +24,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
     },
-    dropLocation: DataTypes.STRING,
-    dropDate: DataTypes.DATE,
-    ddropTime: DataTypes.TIME
+    userId:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    carId:{type: DataTypes.STRING,
+      allowNull:false
+    },
+   
+    bookingId:{type:DataTypes.STRING,
+    },
   }, {
     sequelize,
-    modelName: 'rentalDropInfo',
+    modelName: 'rentedCarInfo',
   });
-  return rentalDropInfo;
+  return rentedCarInfo;
 };

@@ -35,7 +35,7 @@ exports.getApprovedCars=async(req,res)=>{
     try{
         
         const response=await carService.getApprovedCars(req);
-        console.log("RRRRRRRRRRRRRRRREEEEEEEEEEEEEEEEEESSSSSSSSSSSSSPPPPPPPPPPPPPPPPPPPOOONSE++++++=====",response)
+        console.log("RRRRRRRR",response)
         res.status(200).json({response});
 
     }
